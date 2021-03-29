@@ -1,11 +1,24 @@
 import { GetStaticProps } from 'next';
+import Link from 'next/link';
 import Head from 'next/head';
 import Prismic from '@prismicio/client';
+import { RichText } from 'prismic-dom';
 
 import { getPrismicClient } from '../../services/prismic';
 import styles from './styles.module.scss';
 
-export default function Posts() {
+type Post = {
+    slug: string;
+    title: string;
+    excerpt: string;
+    updatedAt: string;    
+}
+
+interface PostsProps {
+    posts: Post[]
+}
+
+export default function Posts({ posts }: PostsProps) {
     return(
         <>
         <Head>
@@ -14,30 +27,15 @@ export default function Posts() {
 
         <main className={styles.container}>
             <div className={styles.posts}>
-                <a href="#">
-                    <time>28 de março de 2021</time>
-                    <strong>Construindo App com Mapa usando React Native Maps e MapBox</strong>
-                    <p>
-                    Neste post vamos mostrar como desenvolver um app no React Native para trabalhar 
-                    com Mapas e Geolocalização.
-                    </p>
-                </a>
-                <a href="#">
-                    <time>28 de março de 2021</time>
-                    <strong>Construindo App com Mapa usando React Native Maps e MapBox</strong>
-                    <p>
-                    Neste post vamos mostrar como desenvolver um app no React Native para trabalhar 
-                    com Mapas e Geolocalização.
-                    </p>
-                </a>
-                <a href="#">
-                    <time>28 de março de 2021</time>
-                    <strong>Construindo App com Mapa usando React Native Maps e MapBox</strong>
-                    <p>
-                    Neste post vamos mostrar como desenvolver um app no React Native para trabalhar 
-                    com Mapas e Geolocalização.
-                    </p>
-                </a>
+                {posts.map(post => (
+                    <Link href={`/posts/${post.slug}`}>
+                        <a  key={post.slug}>
+                            <time>{post.updatedAt}</time>
+                            <strong>{post.title}</strong>
+                            <p>{post.excerpt}</p>
+                        </a>
+                    </Link>
+                ))}
             </div>
         </main>
         </>
@@ -55,9 +53,22 @@ export const getStaticProps: GetStaticProps = async () => {
         lang: 'pt-br'
     })
 
-    console.log(response);
+    const posts = response.results.map(post=> {
+        return {
+            slug: post.uid,
+            title: RichText.asText(post.data.title),
+            excerpt: post.data.content.find(content => content.type === 'paragraph')?.text ?? '',
+            updatedAt: new Date(post.last_publication_date).toLocaleDateString('pt-BR',{
+                day: '2-digit',
+                month: 'long',
+                year: 'numeric'
+            })
+        }
+    })
 
     return {
-        props:{}
+        props: { 
+            posts
+        }
     }
 }
