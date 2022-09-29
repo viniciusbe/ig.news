@@ -1,24 +1,30 @@
-import { useRouter } from 'next/dist/client/router';
-import Link, { LinkProps } from 'next/link'
-import { ReactElement, cloneElement } from 'react';
+import { useRouter } from "next/dist/client/router";
+import Link, { LinkProps } from "next/link";
+import { ReactElement, cloneElement } from "react";
 
-interface ActiveLinkProps extends LinkProps {
-    children:ReactElement;
-    activeClassName:string
+interface ActiveLinkProps extends React.HTMLAttributes<HTMLButtonElement> {
+  children: React.ReactNode;
+  activeClassName: string;
+  path: string;
 }
 
-export function ActiveLink({children, activeClassName, ...rest}: ActiveLinkProps) {
-    const { asPath } = useRouter()
+export function ActiveLink({
+  children,
+  activeClassName,
+  path,
+  ...rest
+}: ActiveLinkProps) {
+  const router = useRouter();
 
-    const className = asPath === rest.href
-        ? activeClassName
-        : '';
+  const className = router.asPath === path ? activeClassName : "";
 
-    return (
-        <Link {...rest}>
-            {cloneElement(children, {
-                className
-            })}
-        </Link>
-    )
+  const handle = () => {
+    router.push(path);
+  };
+
+  return (
+    <span className={className} onClick={handle} {...rest}>
+      {children}
+    </span>
+  );
 }
