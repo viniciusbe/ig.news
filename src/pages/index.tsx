@@ -1,4 +1,5 @@
 import { GetStaticProps } from "next";
+import { useSession } from "next-auth/client";
 import Head from "next/head";
 import { SubscribeButton } from "../components/SubscribeButton";
 import { stripe } from "../services/stripe";
@@ -13,6 +14,7 @@ interface HomeProps {
 }
 
 export default function Home({ product }: HomeProps) {
+  const [session] = useSession();
   return (
     <>
       <Head>

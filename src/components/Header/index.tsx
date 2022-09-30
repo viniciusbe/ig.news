@@ -1,23 +1,30 @@
-import { ActiveLink } from "../ActiveLink";
+import { useSession } from "next-auth/client";
 
-import { SignInButton } from "../SignInButton";
+import { ActiveLink } from "../ActiveLink";
+import { SignOutButton } from "../SessionButtons/signOutButton";
+import { SignInButton } from "../SessionButtons/signInButton";
+
 import styles from "./styles.module.scss";
 
 export function Header() {
+  const [session] = useSession();
+
   return (
     <header className={styles.headerContainer}>
       <div className={styles.headerContent}>
-        <img src="/images/logo.svg" alt="" />
+        <img src="/images/logo.svg" alt="Logo" />
+
         <nav>
           <ActiveLink activeClassName={styles.active} path="/">
             Home
           </ActiveLink>
+
           <ActiveLink activeClassName={styles.active} path="/posts">
             Posts
           </ActiveLink>
         </nav>
 
-        <SignInButton />
+        {session ? <SignOutButton /> : <SignInButton />}
       </div>
     </header>
   );

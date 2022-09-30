@@ -13,31 +13,21 @@ export function SignInButton() {
   const handleSession = async () => {
     setLoading(true);
 
-    session ? await signOut() : await signIn("github");
+    signIn("github");
   };
 
   useEffect(() => {
     if (session) setLoading(false);
-  }, []);
+  }, [session]);
 
   return (
     <Button
-      className={styles.signInButton}
+      className={styles.sessionButton}
       onClick={handleSession}
       loading={loading}
     >
-      {session ? (
-        <>
-          <FaGithub color="#04d361" />
-          {session.user.name}
-          <FiX color="#737380" className={styles.closeIcon} />
-        </>
-      ) : (
-        <>
-          <FaGithub color="#eba417"></FaGithub>
-          Sign In with Github
-        </>
-      )}
+      <FaGithub color="#eba417"></FaGithub>
+      Sign In with Github
     </Button>
   );
 }
