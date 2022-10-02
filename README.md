@@ -4,7 +4,7 @@
 </p>
 
 
-<p align="center"> web application to manage expenses 
+<p align="center"> web application read tech news
 </p>
 
 [![GitHub license](https://img.shields.io/github/license/viniciusbe/ig.news?color=%23eba417)](https://github.com/viniciusbe/ig.news/blob/master/LICENSE) 
