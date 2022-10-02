@@ -7,8 +7,8 @@
 <p align="center"> web application read tech news
 </p>
 
-[![GitHub license](https://img.shields.io/github/license/viniciusbe/ig.news?color=%23eba417)](https://github.com/viniciusbe/ig.news/blob/master/LICENSE) 
-[![Badge](https://img.shields.io/badge/made%20by-Vin%C3%ADcius%20Bernardes-%2300adb5)](https://github.com/viniciusbe) 
+[![GitHub license](https://img.shields.io/github/license/viniciusbe/ig.news?color=%23eba417)](https://github.com/viniciusbe/ig.news/blob/main/LICENSE) 
+[![Badge](https://img.shields.io/badge/made%20by-Vin%C3%ADcius%20Bernardes-%23eba417)](https://github.com/viniciusbe) 
 ![GitHub top language](https://img.shields.io/github/languages/top/viniciusbe/ig.news)
  
 
