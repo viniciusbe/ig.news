@@ -10,6 +10,7 @@
 [![GitHub license](https://img.shields.io/github/license/viniciusbe/ig.news?color=%23eba417)](https://github.com/viniciusbe/ig.news/blob/main/LICENSE) 
 [![Badge](https://img.shields.io/badge/made%20by-Vin%C3%ADcius%20Bernardes-%23eba417)](https://github.com/viniciusbe) 
 ![GitHub top language](https://img.shields.io/github/languages/top/viniciusbe/ig.news)
+![GitHub language count](https://img.shields.io/github/languages/count/viniciusbe/ig.news?color=eba417)
  
 
 ## ▶ Preview
