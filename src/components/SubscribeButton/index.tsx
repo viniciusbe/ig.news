@@ -51,7 +51,11 @@ export function SubscribeButton({ priceId }: SubscribeButtonProps) {
       onClick={handleSubscribe}
       loading={loading}
     >
-      Subscribe now
+      {session
+        ? session.activeSubscription
+          ? "See posts"
+          : "Subscribe now"
+        : "Sign In with Github"}
     </Button>
   );
 }

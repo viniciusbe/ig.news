@@ -15,6 +15,7 @@ interface HomeProps {
 
 export default function Home({ product }: HomeProps) {
   const [session] = useSession();
+
   return (
     <>
       <Head>
@@ -26,11 +27,16 @@ export default function Home({ product }: HomeProps) {
           <h1>
             News about the <span>React</span> world.
           </h1>
-          <p>
-            Get access to all the publications <br />
-            <span>for {product.amount}/month</span>
-          </p>
-          <SubscribeButton priceId={product.priceId}></SubscribeButton>
+          {session?.activeSubscription ? (
+            <p>Stay up-to-date and grow your career</p>
+          ) : (
+            <p>
+              Get access to all the publications <br />
+              <span>for {product.amount}/month</span>
+            </p>
+          )}
+
+          <SubscribeButton priceId={product.priceId} />
         </section>
 
         <img src="/images/avatar.svg" alt="Girl coding" />
