@@ -1,7 +1,9 @@
 import { GetServerSideProps } from "next";
 import { getSession } from "next-auth/client";
 import Head from "next/head";
+
 import { RichText } from "prismic-dom";
+import { BackIcon } from "../../components/BackIcon";
 
 import { getPrismicClient } from "../../services/prismic";
 import styles from "./post.module.scss";
@@ -23,6 +25,8 @@ export default function Post({ post }: PostProps) {
       </Head>
 
       <main className={styles.container}>
+        <BackIcon />
+
         <article className={styles.post}>
           <h1>{post.title}</h1>
           <time>{post.updatedAt}</time>

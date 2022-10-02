@@ -1,6 +1,7 @@
 import { GetStaticProps } from "next";
 import { useSession } from "next-auth/client";
 import Head from "next/head";
+
 import { SubscribeButton } from "../components/SubscribeButton";
 import { stripe } from "../services/stripe";
 
@@ -28,7 +29,7 @@ export default function Home({ product }: HomeProps) {
             News about the <span>React</span> world.
           </h1>
           {session?.activeSubscription ? (
-            <p>Stay up-to-date and grow your career</p>
+            <p>Stay up-to-date to grow in your career</p>
           ) : (
             <p>
               Get access to all the publications <br />

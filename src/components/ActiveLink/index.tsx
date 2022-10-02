@@ -1,6 +1,4 @@
 import { useRouter } from "next/dist/client/router";
-import Link, { LinkProps } from "next/link";
-import { ReactElement, cloneElement } from "react";
 
 interface ActiveLinkProps extends React.HTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
