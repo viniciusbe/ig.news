@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="https://github.com/viniciusbe/ig.news/blob/master/.github/readme_logo.svg" rel="noopener">
- <img src="https://github.com/viniciusbe/ig.news/blob/master/.github/readme_logo.svg" alt="ignews logo"></a>
+  <a href="https://github.com/viniciusbe/ig.news/blob/main/.github/readme_logo.svg" rel="noopener">
+ <img src="https://github.com/viniciusbe/ig.news/blob/main/.github/readme_logo.svg" alt="ignews logo"></a>
 </p>
 
 
@@ -16,8 +16,8 @@
 
 
 <p align="center">
-  <a href="https://github.com/viniciusbe/ig.news/blob/master/.github/readme_preview.gif">
-    <img  src="https://github.com/viniciusbe/ig.news/blob/master/.github/readme_preview.gif" title="App preview gif" /></a>
+  <a href="https://github.com/viniciusbe/ig.news/blob/main/.github/readme_preview.gif">
+    <img  src="https://github.com/viniciusbe/ig.news/blob/main/.github/readme_preview.gif" title="App preview gif" /></a>
 </p>
 
 
